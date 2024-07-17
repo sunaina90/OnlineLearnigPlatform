@@ -1,0 +1,125 @@
+
+
+<form action="Home.html" method="post">
+  <?php
+  session_start();
+  if(isset($_POST['uname']) && isset($_POST['psw'])) {
+      $uname=$_POST['uname'];
+      $psw=$_POST['psw'];
+  
+  
+  if ($uname === 'sunaina' && $psw === 'password') {
+      $_SESSION['uname'] = $username; // store username in session
+      header('Location: Home.html'); // redirect to dashboard page
+      exit;
+  } else {
+      $error = 'Invalid username or password';
+  }
+  }
+  ?>
+  <style>
+      /* Bordered form */
+  form {
+    border: 3px solid #f1f1f1;
+    align-items: center;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 50%;
+    padding: 8px 5px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px 5px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 8px 5px;
+    width: 10%;
+    background-color: #ffb7f1;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+  </style>
+    <div class="loginform">
+      <center> 
+      <label for="UName"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="UName" id="uname" required>
+      <br><br>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      <br>
+      <button type="submit" href="login.php">Login</button>
+      &nbsp;
+      <!--<button type="clear" class="cancelbtn">Cancel</button> -->
+      <br>
+      <div class=\"row\">
+          <div class=\"col s5 offset-s1 right-align\">
+              <input type="checkbox" checked="checked" persist\" id=\"persist\"  />
+                  <label for=\"persist\">Remember me</label>
+          </div>
+          <div class=\"col s5 offset-s1 left-align\">
+              <a href=\"forgot-password.php\">Forgot password?</a>
+              &nbsp;
+              <a href=\"signup.php\">New? Sign up here</a> 
+          </div>
+      </div>
+    </div>
+  </center>
+  </form>
+  
+  
+  
+  
